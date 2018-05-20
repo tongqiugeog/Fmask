@@ -11,7 +11,7 @@ If you have any questions, please contact Zhe Zhu (zhe.zhu@ttu.edu) at Departmen
 
 1) Published Fmask 4.0 verion. (Shi Qiu, Zhe Zhu, and Binbin He 04/26/2018)
 
-2) Adjusted the xxx value that will result in many omission errors for small clouds.  (Shi Qiu and Zhe Zhu 04/05/2018)
+2) Adjusted the erosion value that will result in many omission errors for small clouds.  (Shi Qiu and Zhe Zhu 04/05/2018)
 
 3) Restricted the height of the clouds located in the scene boundary into the predicted cloud height derived from its neighboring clouds.  (Shi Qiu 04/05/2018)
 
