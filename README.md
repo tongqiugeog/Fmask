@@ -13,6 +13,21 @@ Please cite the following papers:
 
 **paper 2: Zhu, Z. and Woodcock, C. E., Improvement and Expansion of the Fmask Algorithm: Cloud, Cloud Shadow, and Snow Detection for Landsats 4-7, 8, and Sentinel 2 images, Remote Sensing of Environment (2014) doi:10.1016/j.rse.2014.12.014 (paper for Fmask version 3.2.).**
 
+After running Fmask, there will be an image called XXXFmask.tif. The image values are presenting the following classes:
+
+0 => clear land pixel
+
+1 => clear water pixel
+
+2 => cloud shadow
+
+3 => snow
+
+4 => cloud
+
+255 => no observation
+
+
 # 4.0 Version
 
 1) Published Fmask 4.0 verion. (Shi Qiu, Zhe Zhu, and Binbin He 04/26/2018)
