@@ -32,18 +32,20 @@ After running Fmask, there will be an image called XXXFmask.tif. The image value
 
 # 4.0 Version
 
-1) Revised the identification of potential false pasitive clouds.  (Shi Qiu and Zhe Zhu 05/23/2018)
+1) Integrated CDI into this Fmask 4.0 for better seperating clouds from bright surfaces.  (Shi Qiu and Zhe Zhu 06/03/2018)
 
-2) Published Fmask 4.0 verion. (Shi Qiu, Zhe Zhu, and Binbin He 04/26/2018)
+2) Revised the identification of potential false pasitive clouds.  (Shi Qiu and Zhe Zhu 05/23/2018)
 
-3) Adjusted the erosion value that will result in many omission errors for small clouds.  (Shi Qiu and Zhe Zhu 04/05/2018)
+3) Published Fmask 4.0 verion. (Shi Qiu, Zhe Zhu, and Binbin He 04/26/2018)
 
-4) Restricted the height of the clouds located in the scene boundary into the predicted cloud height derived from its neighboring clouds.  (Shi Qiu 04/05/2018)
+4) Adjusted the erosion value that will result in many omission errors for small clouds.  (Shi Qiu and Zhe Zhu 04/05/2018)
 
-5) Removed the overlap between the predicted cloud shadow and the potential cloud shadow layer for cloud shadow detection. (Shi Qiu and Zhe Zhu 03/29/2018)
+5) Restricted the height of the clouds located in the scene boundary into the predicted cloud height derived from its neighboring clouds.  (Shi Qiu 04/05/2018)
 
-6) Fixed the bug that the reading blue band using GRIDobj may lead to Nan value for Landsat images. (Shi Qiu 03/26/2018)
+6) Removed the overlap between the predicted cloud shadow and the potential cloud shadow layer for cloud shadow detection. (Shi Qiu and Zhe Zhu 03/29/2018)
 
-7) Improved the computational efficiency specially for cloud shadow matching procedure.  (Zhe Zhu and Shi Qiu 03/24/2018)
+7) Fixed the bug that the reading blue band using GRIDobj may lead to Nan value for Landsat images. (Shi Qiu 03/26/2018)
+
+8) Improved the computational efficiency specially for cloud shadow matching procedure.  (Zhe Zhu and Shi Qiu 03/24/2018)
 
 8) Published Fmask 4.0 beta version. (Shi Qiu, Zhe Zhu, and Binbin He 03/22/2018)
