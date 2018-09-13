@@ -33,6 +33,8 @@ Please cite the following papers:
 
 **paper 3: Qiu S., He B., Zhu Z., et al. Improving Fmask cloud and cloud shadow detection in mountainous area for Landsats 4–8 images, Remote Sensing of Environment (2017), doi.org/10.1016/j.rse.2017.07.002 (paper for Mountainous Fmask (MFmask), that has been integrated into this Fmask 4.0).**
 
+**paper 4: Qiu S., Zhu Z., and He B., Fmask 4.0: Improved cloud and cloud shadow detection in Landsats
+4-8 and Sentinel-2 imagery, Remote Sensing of Environment, Under Review (paper for Fmask 4.0).**
 
 After running Fmask 4.0, there will be an image called XXXFmask.tif. The image values are presenting the following classes:
 
