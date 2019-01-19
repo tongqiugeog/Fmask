@@ -1,7 +1,7 @@
 # Fmask
 The software called Fmask (Function of mask) is used for automated **clouds**, **cloud shadows**, **snow**, and **water** masking for Landsats 4-8 and Sentinel 2 images.
 
-If you have any questions, please contact Zhe Zhu (zhe.zhu@ttu.edu) at Department of Geosciences, Texas Tech University.
+If you have any questions, please contact Zhe Zhu (zhe@uconn.edu) at Department of Natural Resources and the Environment, University of Connecticut.
 
 **IMPORTANT:** Fmask 4.0 softwares (including standalones with GUI and without GUI) on Windows and Linux (~1G) are ready to use now! It can be downloaded at this [link] (https://drive.google.com/drive/folders/1SXBnEBDJ1Kbv7IQ9qIgqloYHZfdP6O1O). This version has substantial better cloud, cloud shadow, and snow detection results for Sentinel 2 and better results (compared to the 3.3 version that is currently being used by USGS as the Collection 1 QA Band) for Landsats 4-8 . This one software can be used for **Landsats 4-8 Collection 1 Level 1 product** and **Sentinel 2 Level-1C product** at the same time.
 
@@ -10,19 +10,21 @@ If you have any questions, please contact Zhe Zhu (zhe.zhu@ttu.edu) at Departmen
 
 # 4.0 Version
 
-1) Integrated Cloud Displacement Index (CDI) into this Fmask 4.0 for better seperating clouds from bright surfaces especail for Sentinel-2. The CDI was specially designed to separate clouds from bright surfaces based on the view angle parallax of the three near infrared bands (band 7, 8 and 8a) ([Frantz et al., 2018](https://doi.org/10.1016/j.rse.2018.04.046)).  (Shi Qiu and Zhe Zhu 06/03/2018)
+1) Fixed the bug that the cloud shadows in Sentinel-2 imagery would be projected along a wrong direction when solar azimuth angle > 180 degrees. (Shi Qiu 01/19/2019)
 
-2) Revised the method to identify the potential false positive cloud pixels.  (Shi Qiu and Zhe Zhu 05/23/2018)
+2) Integrated Cloud Displacement Index (CDI) into this Fmask 4.0 for better seperating clouds from bright surfaces especail for Sentinel-2. The CDI was specially designed to separate clouds from bright surfaces based on the view angle parallax of the three near infrared bands (band 7, 8 and 8a) ([Frantz et al., 2018](https://doi.org/10.1016/j.rse.2018.04.046)).  (Shi Qiu and Zhe Zhu 06/03/2018)
 
-3) Restricted the height of the clouds located in the scene boundary into the predicted cloud height derived from its neighboring clouds.  (Shi Qiu 04/05/2018)
+3) Revised the method to identify the potential false positive cloud pixels.  (Shi Qiu and Zhe Zhu 05/23/2018)
 
-4) Removed the overlap between the predicted cloud shadow and the potential cloud shadow layer for cloud shadow detection. (Shi Qiu and Zhe Zhu 03/29/2018)
+4) Restricted the height of the clouds located in the scene boundary into the predicted cloud height derived from its neighboring clouds.  (Shi Qiu 04/05/2018)
 
-5) Fixed the bug that the reading blue band using GRIDobj may lead to Nan value for Landsat images. (Shi Qiu 03/26/2018)
+5) Removed the overlap between the predicted cloud shadow and the potential cloud shadow layer for cloud shadow detection. (Shi Qiu and Zhe Zhu 03/29/2018)
 
-6) Improved the computational efficiency specially for cloud shadow matching procedure.  (Zhe Zhu and Shi Qiu 03/24/2018)
+6) Fixed the bug that the reading blue band using GRIDobj may lead to Nan value for Landsat images. (Shi Qiu 03/26/2018)
 
-7) Released Fmask 4.0 beta version. (Shi Qiu, Zhe Zhu, and Binbin He 03/22/2018)
+7) Improved the computational efficiency specially for cloud shadow matching procedure.  (Zhe Zhu and Shi Qiu 03/24/2018)
+
+8) Released Fmask 4.0 beta version. (Shi Qiu, Zhe Zhu, and Binbin He 03/22/2018)
 
 
 Please cite the following papers:
