@@ -28,6 +28,7 @@ If you have any questions, please contact Zhe Zhu (zhe@uconn.edu) and Shi Qiu (s
 
 
 Please cite the following papers:
+
 **paper 1: Qiu S., Zhu Z., and He B., Fmask 4.0: Improved cloud and cloud shadow detection in Landsats
 4-8 and Sentinel-2 imagery, Remote Sensing of Environment, Under Review (paper for Fmask 4.0).**
 
