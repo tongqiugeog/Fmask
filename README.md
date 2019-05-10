@@ -3,7 +3,7 @@ The software called Fmask (Function of mask) is used for automated **clouds**, *
 
 If you have any questions, please contact Zhe Zhu (zhe@uconn.edu) and Shi Qiu (shi.qiu@uconn.edu) at Department of Natural Resources and the Environment, University of Connecticut.
 
-**IMPORTANT:** Fmask 4.0 softwares (including standalones with GUI and without GUI) on Windows and Linux (~1G) are ready to use now! It can be downloaded at this [link] (https://drive.google.com/drive/folders/1SXBnEBDJ1Kbv7IQ9qIgqloYHZfdP6O1O). This version has substantial better cloud, cloud shadow, and snow detection results for Sentinel 2 and better results (compared to the 3.3 version that is currently being used by USGS as the Collection 1 QA Band) for Landsats 4-8 . This one software can be used for **Landsats 4-8 Collection 1 Level 1 product** and **Sentinel 2 Level-1C product** at the same time.
+**IMPORTANT:** Fmask 4.0 softwares (including standalones with GUI and without GUI) on Windows and Linux (~1G) are ready to use now! It can be downloaded at this [link] (https://drive.google.com/drive/folders/1SXBnEBDJ1Kbv7IQ9qIgqloYHZfdP6O1O). This version has substantial better cloud, cloud shadow, and snow detection results for Sentinel 2 and better results (compared to the 3.3 version that is currently being used by USGS as the Collection 1 QA Band) for Landsats 4-8 . This one software can be used for **Landsats 4-8 Collection 1 Level 1 product (Digital Numbers)** and **Sentinel 2 Level-1C product (Top Of Reflectance)** at the same time.
 
 **IMPORTANT:** Majority of the current Collection 1 Landsats 4-8 QA Band provided by USGS are derived form **3.3 Version of Fmask algorithm** based on default parameters (cloud probability is 22.5% and buffer pixel size is 3). For example, (1) The Cloud (bit 4) is based on Fmask cloud mask (0 is not cloud and 1 is cloud in Fmask); (2) The Cloud Confidence (bits 5-6) is based on Fmask cloud probability in which >22.5% is high (11), >12.5% is medium (10), and <12.5% is low (01) with 00 kept for future use; (3) Snow/ice Confidence (bits 9-10) and Cloud Shadow Confidence (bits 7-8) has only low confidence (01) and high confidence (11) which correspond to no and yes respectively in snow/ice and cloud shadow mask provided by Fmask.
 
@@ -28,15 +28,18 @@ If you have any questions, please contact Zhe Zhu (zhe@uconn.edu) and Shi Qiu (s
 
 
 Please cite the following papers:
-
-**paper 1: Zhu, Z. and Woodcock, C. E., Object-based cloud and cloud shadow detection in Landsat imagery, Remote Sensing of Environment (2012), doi:10.1016/j.rse.2011.10.028 (paper for Fmask version 1.6.).**
-
-**paper 2: Zhu, Z. and Woodcock, C. E., Improvement and Expansion of the Fmask Algorithm: Cloud, Cloud Shadow, and Snow Detection for Landsats 4-7, 8, and Sentinel 2 images, Remote Sensing of Environment (2014) doi:10.1016/j.rse.2014.12.014 (paper for Fmask version 3.2.).**
-
-**paper 3: Qiu S., He B., Zhu Z., et al. Improving Fmask cloud and cloud shadow detection in mountainous area for Landsats 4–8 images, Remote Sensing of Environment (2017), doi.org/10.1016/j.rse.2017.07.002 (paper for Mountainous Fmask (MFmask), that has been integrated into this Fmask 4.0).**
-
-**paper 4: Qiu S., Zhu Z., and He B., Fmask 4.0: Improved cloud and cloud shadow detection in Landsats
+**paper 1: Qiu S., Zhu Z., and He B., Fmask 4.0: Improved cloud and cloud shadow detection in Landsats
 4-8 and Sentinel-2 imagery, Remote Sensing of Environment, Under Review (paper for Fmask 4.0).**
+
+**paper 2: Qiu, S., Lin Y., Shang R., Zhang J., Ma L., and Zhu Z., Making Landsat Time Series Consistent: Evaluating and Improving Landsat Analysis Ready Data, Remote Sensing (2019), doi.org/10.3390/rs11010051 (First paper introducing Fmask 4.0 for improving LTS consistency).**
+
+**paper 3: Zhu, Z. and Woodcock, C. E., Improvement and Expansion of the Fmask Algorithm: Cloud, Cloud Shadow, and Snow Detection for Landsats 4-7, 8, and Sentinel 2 images, Remote Sensing of Environment (2014) doi:10.1016/j.rse.2014.12.014 (paper for Fmask version 3.2).**
+
+**paper 4: Zhu, Z. and Woodcock, C. E., Object-based cloud and cloud shadow detection in Landsat imagery, Remote Sensing of Environment (2012), doi:10.1016/j.rse.2011.10.028 (paper for Fmask version 1.6).**
+
+**paper 5: Qiu S., He B., Zhu Z., et al. Improving Fmask cloud and cloud shadow detection in mountainous area for Landsats 4–8 images, Remote Sensing of Environment (2017), doi.org/10.1016/j.rse.2017.07.002 (paper for Mountainous Fmask (MFmask), that has been integrated into this Fmask 4.0).**
+
+
 
 After running Fmask 4.0, there will be an image called XXXFmask.tif. The image values are presenting the following classes:
 
