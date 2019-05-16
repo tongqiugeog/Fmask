@@ -39,14 +39,18 @@ Please cite the following papers:
 **paper 1: Qiu S., Zhu Z., and He B., Fmask 4.0: Improved cloud and cloud shadow detection in Landsats
 4-8 and Sentinel-2 imagery, Remote Sensing of Environment, Accepted (paper for Fmask 4.0).**
 
-**paper 2: Qiu, S., Lin Y., Shang R., Zhang J., Ma L., and Zhu Z., Making Landsat Time Series Consistent: Evaluating and Improving Landsat Analysis Ready Data, Remote Sensing (2019), doi.org/10.3390/rs11010051 (First paper introducing Fmask 4.0 for improving LTS consistency).**
+**paper 2: Qiu, S., Lin Y., Shang R., Zhang J., Ma L., and Zhu Z., Making Landsat Time Series Consistent: Evaluating and Improving Landsat Analysis Ready Data, Remote Sensing (2019), [doi.org/10.3390/rs11010051](https://doi.org/10.3390/rs11010051) (First paper introducing Fmask 4.0 for improving LTS consistency).**
 
-**paper 3: Zhu, Z. and Woodcock, C. E., Improvement and Expansion of the Fmask Algorithm: Cloud, Cloud Shadow, and Snow Detection for Landsats 4-7, 8, and Sentinel 2 images, Remote Sensing of Environment (2014) doi:10.1016/j.rse.2014.12.014 (paper for Fmask version 3.2).**
+**paper 3: Zhu, Z. and Woodcock, C. E., Improvement and Expansion of the Fmask Algorithm: Cloud, Cloud Shadow, and Snow Detection for Landsats 4-7, 8, and Sentinel 2 images, Remote Sensing of Environment (2014) [doi:10.1016/j.rse.2014.12.014](https://doi:10.1016/j.rse.2014.12.014) (paper for Fmask version 3.2).**
 
-**paper 4: Zhu, Z. and Woodcock, C. E., Object-based cloud and cloud shadow detection in Landsat imagery, Remote Sensing of Environment (2012), doi:10.1016/j.rse.2011.10.028 (paper for Fmask version 1.6).**
+**paper 4: Zhu, Z. and Woodcock, C. E., Object-based cloud and cloud shadow detection in Landsat imagery, Remote Sensing of Environment (2012), [doi:10.1016/j.rse.2011.10.028](https://doi:10.1016/j.rse.2011.10.028) (paper for Fmask version 1.6).**
 
-**paper 5: Qiu S., He B., Zhu Z., et al. Improving Fmask cloud and cloud shadow detection in mountainous area for Landsats 4–8 images, Remote Sensing of Environment (2017), doi.org/10.1016/j.rse.2017.07.002 (paper for Mountainous Fmask (MFmask), that has been integrated into this Fmask 4.0).**
+**paper 5: Qiu S., He B., Zhu Z., et al. Improving Fmask cloud and cloud shadow detection in mountainous area for Landsats 4–8 images, Remote Sensing of Environment (2017), [doi.org/10.1016/j.rse.2017.07.002](https://doi.org/10.1016/j.rse.2017.07.002) (paper for Mountainous Fmask (MFmask), that has been integrated into this Fmask 4.0).**
 
+
+**The training data** for the Fmask 4.0 are availble at the following link: https://landsat.usgs.gov/landsat-8-cloud-cover-assessment-validation-data
+
+**The validation data** for the Fmask 4.0 are comming soon.
 
 
 After running Fmask 4.0, there will be an image called XXXFmask.tif. The image values are presenting the following classes:
