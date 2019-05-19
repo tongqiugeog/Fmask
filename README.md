@@ -6,7 +6,7 @@ If you have any questions, please contact Zhe Zhu (zhe@uconn.edu) and Shi Qiu (s
 **IMPORTANT:**
 
 This Github page **ONLY** includes the Matlab code for Fmask 4.0. **The Matlab package with GLOBAL AUXILIARY DATA (~1G)** is available at this [Google Drive](https://drive.google.com/open?id=1l84t_lbp5Cp5v8L_Rbzk3WQHap7MdFwc) or this [Baidu Drive with a code of p3m4](https://pan.baidu.com/s/1GHB2uLqU1OvQjQeWuoA0ig).
-**autoFmask** is the main function for processing one certain image. **autoFmaskBacth** can process all Landsats 4-8 and Sentinel-2 images into a certain folder.
+**autoFmask** is the main function for processing a image. **autoFmaskBacth** can process all Landsats 4-8 and Sentinel-2 images into a folder.
 
 **Fmask 4.0 softwares** (including standalones with GUI and without GUI) on Windows, Mac, and Linux (~1G) are also ready to use now! It can be downloaded at this [Google Drive](https://drive.google.com/drive/folders/1SXBnEBDJ1Kbv7IQ9qIgqloYHZfdP6O1O).
 
