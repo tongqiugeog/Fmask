@@ -232,5 +232,4 @@ function clr_pct = autoFmask(varargin)
     time=time/60;
     fprintf('%s finished (%.2f minutes)\nfor %s with %.2f%% clear pixels\n\n',...
         fmask_soft_name,time,data_meta.Name,clr_pct);
-%     enviwrite([path_data,data_meta.Name,'_Fmask41'], cs_final, 'uint8', data_meta.Resolution, data_meta.UL, 'bsq', data_meta.ZC); 
 end
