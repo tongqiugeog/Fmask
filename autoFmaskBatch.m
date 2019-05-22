@@ -8,6 +8,6 @@ function autoFmaskBatch()
     for i=1: length(paths)
         cd(paths{i});
         fprintf('At %s.\n',paths{i});
-        autoFmask('cloud',0);% 4.0
+        autoFmask();% 4.0
     end
 end
