@@ -17,7 +17,6 @@ This 4.0 version has substantial better cloud, cloud shadow, and snow detection 
 
 **IMPORTANT:** When making the accuracy assessment for Fmask, please dilate 3 pixels for cloud shadow pixels, but no dilation for cloud, snow, and water pixels (Qiu et al., 2019; Qiu et al., 2017; Zhu et al., 2015; Zhu and Woodcock, 2012).
 
-(PDF) Fmask 4.0: Improved cloud and cloud shadow detection in Landsats 4-8 and Sentinel-2 imagery. Available from: https://www.researchgate.net/publication/333123365_Fmask_40_Improved_cloud_and_cloud_shadow_detection_in_Landsats_4-8_and_Sentinel-2_imagery [accessed May 23 2019].
 
 # 4.0 Version
 
