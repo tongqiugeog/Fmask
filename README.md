@@ -46,7 +46,7 @@ Please cite the following papers:
 
 **paper 3: Zhu, Z. and Woodcock, C. E., Object-based cloud and cloud shadow detection in Landsat imagery, Remote Sensing of Environment (2012), [doi:10.1016/j.rse.2011.10.028](https://doi:10.1016/j.rse.2011.10.028) (paper for Fmask version 1.6).**
 
-**paper 4: Qiu S., He B., Zhu Z., et al. Improving Fmask cloud and cloud shadow detection in mountainous area for Landsats 4–8 images, Remote Sensing of Environment (2017), [doi.org/10.1016/j.rse.2017.07.002](https://doi.org/10.1016/j.rse.2017.07.002) (paper for Mountainous Fmask (MFmask), that has been integrated into this Fmask 4.0).**
+**paper 4: Qiu S., He B., Zhu Z., et al. Improving Fmask cloud and cloud shadow detection in mountainous area for Landsats 4–8 images, Remote Sensing of Environment (2017), [doi.org/10.1016/j.rse.2017.07.002](https://doi.org/10.1016/j.rse.2017.07.002) (paper for Mountainous Fmask ([MFmask](https://github.com/qsly09/MFmask)), that has been integrated into this Fmask 4.0).**
 
 **paper 5: Qiu, S., Lin Y., Shang R., Zhang J., Ma L., and Zhu Z., Making Landsat Time Series Consistent: Evaluating and Improving Landsat Analysis Ready Data, Remote Sensing (2019), [doi.org/10.3390/rs11010051](https://doi.org/10.3390/rs11010051) (First paper introducing Fmask 4.0 for improving LTS consistency).**
 
