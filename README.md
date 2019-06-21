@@ -40,7 +40,7 @@ This 4.0 version has substantial better cloud, cloud shadow, and snow detection 
 Please cite the following papers:
 
 **paper 1: Qiu S., Zhu Z., and He B., Fmask 4.0: Improved cloud and cloud shadow detection in Landsats
-4-8 and Sentinel-2 imagery, Remote Sensing of Environment, Accepted (paper for Fmask 4.0).**
+4-8 and Sentinel-2 imagery, Remote Sensing of Environment, (2019), [doi.org/10.1016/j.rse.2019.05.024](https://doi.org/10.1016/j.rse.2019.05.024) (paper for Fmask 4.0).**
 
 **paper 2: Qiu, S., Lin Y., Shang R., Zhang J., Ma L., and Zhu Z., Making Landsat Time Series Consistent: Evaluating and Improving Landsat Analysis Ready Data, Remote Sensing (2019), [doi.org/10.3390/rs11010051](https://doi.org/10.3390/rs11010051) (First paper introducing Fmask 4.0 for improving LTS consistency).**
 
