@@ -46,7 +46,7 @@ function clr_pct = autoFmask(varargin)
 %
 %        
 % Author:  Shi Qiu (shi.qiu@uconn.com)
-% Last Date: May 15, 2019
+% Last Date: Nov 13, 2019
     warning off; % do not show warning information
     tic
     fmask_soft_name='Fmask 4.0';
