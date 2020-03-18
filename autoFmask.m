@@ -21,12 +21,18 @@ function clr_pct = autoFmask(varargin)
 %     snow      Dilated number of pixels for snow with default value of 0.
 %     p         Cloud probability threshold with default values of 10.0 for
 %               Landsats 4~7, 17.5 for Landsat 8, and 20.0 for Sentinel 2.
+%     d         Radius of dilation for Potential False Positive Cloud such as
+%               urban/built-up and (mountian) snow/ice. Default: 0 meters.
+%               Higher the value, Larger the potential false positive cloud
+%               layer. This is used for the places where the orginal Potential 
+%               False Positive Cloud Layer fails to include the false
+%               posistive clouds.
 %     e         Radius of erosion for Potential False Positive Cloud such as
 %               urban/built-up and (mountian) snow/ice. Default: 150 meters
 %               for Landsats 4-7 and 90 meters for Landsat 8 and
 %               Sentinel-2.
 %     sw        ShadowWater (SW) means the shadow of cloud over water.
-%               False (Default value) or True
+%               Default: False
 %               We do not suggest mask out the cloud shadow over water
 %               since it is less meanful and very time-comsuing.
 %     udem      The path of User's DEM data. (.tiff). If users provide
@@ -50,7 +56,7 @@ function clr_pct = autoFmask(varargin)
 %
 %        
 % Author:  Shi Qiu (shi.qiu@uconn.edu)
-% Last Date: March 17, 2020
+% Last Date: March 18, 2020
     warning('off','all'); % do not show warning information
     tic
     fmask_soft_name='Fmask 4.1';
@@ -74,6 +80,7 @@ function clr_pct = autoFmask(varargin)
     
     default_paras = FmaskParameters(sensor);
     tpw = default_paras.ThinWeight;
+    addParameter(p,'d',default_paras.PFPCLayerExtensinRadius);
     addParameter(p,'e',default_paras.PFPCErosionRadius);
     addParameter(p,'p',default_paras.CloudProbabilityThershold);
     addParameter(p,'resolution',default_paras.OutputResolution);
@@ -89,10 +96,11 @@ function clr_pct = autoFmask(varargin)
     cldpix=p.Results.cloud;
     sdpix=p.Results.shadow;
     snpix=p.Results.snow;
+    expdpix = round(p.Results.d/resolution);
     erdpix=round(p.Results.e/resolution);
     cldprob=p.Results.p;
     isShadowater = p.Results.sw;
-    
+
     % users can use the local dem.
     userdem = p.Results.udem;
     clear p;
@@ -180,6 +188,15 @@ function clr_pct = autoFmask(varargin)
     pfpl = DetectPotentialFalsePositivePixels(mask, psnow, slope, ndbi, ndvi, data_toabt.BandBT,cdi, water,data_meta.Resolution(1));
 
     clear ndbi ndvi;
+    
+     % buffer the potential false positive cloud layer.
+    if expdpix>0
+        PFPCEs=strel('square',2*expdpix+1);
+        pfpl=imdilate(pfpl,PFPCEs);
+        clear PFPCEs;
+    end
+    clear expdpix;
+    
     %% remove most of commission errors from urban, bright rock, and coastline.
     pcloud = ErodeCommissons(data_meta,pcloud_all,pfpl,water,cdi,erdpix);
     clear cdi;
