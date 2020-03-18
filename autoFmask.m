@@ -30,7 +30,7 @@ function clr_pct = autoFmask(varargin)
 %               We do not suggest mask out the cloud shadow over water
 %               since it is less meanful and very time-comsuing.
 %     udem      The path of User's DEM data. (.tiff). If users provide
-%               local DEM data, Fmask 4.0 will process the image along with this DEM
+%               local DEM data, Fmask 4.1 will process the image along with this DEM
 %               data; or, the default USGS GTOPO30 will be used.
 %
 % Output arguments
