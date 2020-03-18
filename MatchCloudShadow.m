@@ -6,6 +6,7 @@
 % wrong when some parts of cloud are out of the observations.
 % 
 %
+% mask out the shadow of cloud over water or not?  By Shi, at 17, March, 2020
 % fix the bug that cloud shadow would be projected on the other side in Sentinel-2 imagery when the azimuth angle > 180. By Shi, at 19, Jan., 2019
 % use new match similarity becasue we do not know the potential clouds 
 % excluding self cloud and outsides are shadow or not.   by Shi, at 21, April, 2018
@@ -29,7 +30,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [ similar_num,data_cloud_matched, data_shadow_matched] = MatchCloudShadow(...
-    mask,plcim,plsim,pfpl,water,data_dem,data_bt_c,t_templ,t_temph,data_meta,ptm,num_near,angles_view)
+    mask,plcim,plsim,isShadowater,waterAll,data_dem,data_bt_c,t_templ,t_temph,data_meta,ptm,num_near,angles_view)
     
     dim=data_meta.Dim;
     % get potential mask values
@@ -186,6 +187,11 @@ function [ similar_num,data_cloud_matched, data_shadow_matched] = MatchCloudShad
             orin_xys_all(:,:)=stats(cloud_type,:).PixelList(:,:);
             % record this orinal ids
             orin_cid_all=sub2ind(dim,orin_xys_all(:,2),orin_xys_all(:,1)); 
+
+            % we do not provide the cloud shadow for the clouds over water
+            if ~isShadowater && sum(waterAll(orin_cid_all))==length(orin_cid_all)
+                continue;
+            end
 
             % assume object is round r_obj is radium of object 
             r_obj=sqrt(obj_num(cloud_type)/2*pi);
