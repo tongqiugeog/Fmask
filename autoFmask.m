@@ -25,6 +25,10 @@ function clr_pct = autoFmask(varargin)
 %               urban/built-up and (mountian) snow/ice. Default: 150 meters
 %               for Landsats 4-7 and 90 meters for Landsat 8 and
 %               Sentinel-2.
+%     sw        ShadowWater (SW) means the shadow of cloud over water.
+%               False (Default value) or True
+%               We do not suggest mask out the cloud shadow over water
+%               since it is less meanful and very time-comsuing.
 %     udem      The path of User's DEM data. (.tiff). If users provide
 %               local DEM data, Fmask 4.0 will process the image along with this DEM
 %               data; or, the default USGS GTOPO30 will be used.
@@ -49,7 +53,7 @@ function clr_pct = autoFmask(varargin)
 % Last Date: March 17, 2020
     warning off; % do not show warning information
     tic
-    fmask_soft_name='Fmask 4.0';
+    fmask_soft_name='Fmask 4.1';
     fprintf('%s start ...\n',fmask_soft_name);
     path_data=pwd;
     
