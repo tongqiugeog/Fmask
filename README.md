@@ -19,7 +19,7 @@ This 4.1 version has substantial better cloud, cloud shadow, and snow detection 
 
 # 4.1 Version
 
-1) The cloud shadow over water would not be provided at default settings since this will be less meaningful to use and very time-consuming to process. At the same time, fixed the bug that the auxiliary data may not be used for some Sentinel-2 images, of which the extent in the metadata is defined in [0 360] rather than [-180 180]. (Shi Qiu 3/17/2020)
+1) The cloud shadow mask over water would not be provided at default settings since this will be less meaningful to use and very time-consuming to process. At the same time, fixed the bug that the auxiliary data may not be used for some Sentinel-2 images, of which the extent in the metadata is defined in [0 360] rather than [-180 180]. (Shi Qiu 3/17/2020)
 
 ----- 4.0 version below ----
 
