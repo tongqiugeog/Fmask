@@ -1,4 +1,4 @@
-function water = DetectWater( dim, mask, nir, NDVI, psnow, slope, gswater)
+function [water, waterAll] = DetectWater( dim, mask, nir, NDVI, psnow, slope, gswater)
 %DETECTWATER Detect water by combining spectral-derived water and
 %GSWO-derived water togeter.
 %
