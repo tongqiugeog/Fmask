@@ -9,6 +9,7 @@ classdef FmaskParameters
         CloudProbabilityThershold
         PFPCErosionRadius  % meters
         OutputResolution  % meters
+        ShadowWater % yes or no for masking cloud shadow over water
     end
     
     methods
@@ -20,6 +21,11 @@ classdef FmaskParameters
             obj.CloudBuffer=3;
             obj.CloudShadowBuffer=3;
             obj.SnowBuffer=0;
+            
+            % mask out the shadow of the cloud over water?
+            % default: we do not provide the cloud shadow over water since
+            % this processing will be very time-comsuing but less meanful.
+            obj.ShadowWater=0; 
             
             % different paras for different sensors.
             switch sensor
