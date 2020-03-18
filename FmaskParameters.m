@@ -7,6 +7,7 @@ classdef FmaskParameters
         SnowBuffer % pixels
         ThinWeight
         CloudProbabilityThershold
+        PFPCLayerExtensinRadius  % meters
         PFPCErosionRadius  % meters
         OutputResolution  % meters
         ShadowWater % yes or no for masking cloud shadow over water
@@ -21,6 +22,7 @@ classdef FmaskParameters
             obj.CloudBuffer=3;
             obj.CloudShadowBuffer=3;
             obj.SnowBuffer=0;
+            obj.PFPCLayerExtensinRadius=0;
             
             % mask out the shadow of the cloud over water?
             % default: we do not provide the cloud shadow over water since
