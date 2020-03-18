@@ -5,11 +5,11 @@ function clr_pct = autoFmask(varargin)
 %
 % Description
 %     Shi Qiu, Zhe Zhu, Binbin He
-%     shi.qiu@uconn.com, zhe.zhu@uconn.edu, binbinhe@uestc.edu.cn
+%     shi.qiu@uconn.edu, zhe.zhu@uconn.edu, binbinhe@uestc.edu.cn
 %     Automatically detect clouds, cloud shadows, snow, and water for
 %     Landsats 4-7, Landsat 8, and Sentinel 2 images.
 %
-%     This 4.0 version has better cloud, cloud shadow, and snow detection
+%     This 4.1 version has better cloud, cloud shadow, and snow detection
 %     results for Sentinel-2 data and better results (compared to the 3.3
 %     version that is being used by USGS as the Colection 1 QA Band) for
 %     Landsats 4-8 data as well.
@@ -45,8 +45,8 @@ function clr_pct = autoFmask(varargin)
 %     clr_pct = autoFmask('e',500) forces erosion radius for Potential False Positive Cloud as 500 meters to remove the large commission errors.
 %
 %        
-% Author:  Shi Qiu (shi.qiu@uconn.com)
-% Last Date: Nov 13, 2019
+% Author:  Shi Qiu (shi.qiu@uconn.edu)
+% Last Date: March 17, 2020
     warning off; % do not show warning information
     tic
     fmask_soft_name='Fmask 4.0';
@@ -74,6 +74,8 @@ function clr_pct = autoFmask(varargin)
     addParameter(p,'p',default_paras.CloudProbabilityThershold);
     addParameter(p,'resolution',default_paras.OutputResolution);
     
+    addParameter(p,'sw',default_paras.ShadowWater);
+    
     % user's path for DEM
     addParameter(p,'udem','');
     
@@ -85,6 +87,7 @@ function clr_pct = autoFmask(varargin)
     snpix=p.Results.snow;
     erdpix=round(p.Results.e/resolution);
     cldprob=p.Results.p;
+    isShadowater = p.Results.sw;
     
     % users can use the local dem.
     userdem = p.Results.udem;
@@ -139,7 +142,7 @@ function clr_pct = autoFmask(varargin)
     psnow = DetectSnow(data_meta.Dim, data_toabt.BandGreen, data_toabt.BandNIR, data_toabt.BandBT, ndsi);
     
     %% detect water
-    water = DetectWater(data_meta.Dim, mask, data_toabt.BandNIR, ndvi, psnow, slope, water_occur);
+    [water, waterAll] = DetectWater(data_meta.Dim, mask, data_toabt.BandNIR, ndvi, psnow, slope, water_occur);
     clear water_occur;
     
     [idplcd,BandCirrusNormal,whiteness,HOT] = DetectPotentialPixels(mask,data_toabt,dem,ndvi,ndsi,satu_Bv);
@@ -201,7 +204,7 @@ function clr_pct = autoFmask(varargin)
         clear data_toabt;
         % match cloud shadow, and return clouds and cloud shadows.
         [ ~,pcloud, pshadow] = MatchCloudShadow(...
-        mask,pcloud,pshadow,pfpl,water, dem ,data_bt_c,t_templ,t_temph,data_meta,sum_clr,14,angles_view);
+        mask,pcloud,pshadow,isShadowater,waterAll, dem ,data_bt_c,t_templ,t_temph,data_meta,sum_clr,14,angles_view);
    
         % make buffer for final masks.
         % the called cloud indicate those clouds are have highest piroity.
