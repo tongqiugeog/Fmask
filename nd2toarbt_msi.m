@@ -1,4 +1,4 @@
-function [im_th,TOAref,trgt,ijdim_ref,bbox,ul,zen,azi,zc,Angles2,B1Satu,B2Satu,B3Satu,resolu]=nd2toarbt_msi2(im)
+function [im_th,TOAref,trgt,ijdim_ref,bbox,ul,zen,azi,zc,Angles2,B1Satu,B2Satu,B3Satu,resolu]=nd2toarbt_msi(im)
 % read TOA refs function derived from Fmask 3.3 for Sentinel 2.
 % Revisions:
 % Use REF vs. DN instead of RAD vs. DN (Zhe 06/20/2013)
@@ -195,7 +195,7 @@ function trgt=CreateTargetGRIDobj(resolu,ul,ijdim_ref,zc_num,zc_ns,geokey)
 
     % this can be used as follows because the Sentinel 2 titles's projection
     % will not be changable.
-    % WGS84 UTM: A UTM zone is a 6?° segment of the Earth.
+    % WGS84 UTM: A UTM zone is a 6?Â° segment of the Earth.
     E = wgs84Ellipsoid('meters');
     utmstruct = defaultm('tranmerc');
     utmstruct.geoid =  [E.SemimajorAxis,E.Eccentricity];
