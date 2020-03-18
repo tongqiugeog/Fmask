@@ -188,11 +188,6 @@ function [ similar_num,data_cloud_matched, data_shadow_matched] = MatchCloudShad
             % record this orinal ids
             orin_cid_all=sub2ind(dim,orin_xys_all(:,2),orin_xys_all(:,1)); 
 
-            % we do not provide the cloud shadow for the clouds over water
-            if ~isShadowater && sum(waterAll(orin_cid_all))==length(orin_cid_all)
-                continue;
-            end
-
             % assume object is round r_obj is radium of object 
             r_obj=sqrt(obj_num(cloud_type)/2*pi);
 
@@ -441,6 +436,13 @@ function [ similar_num,data_cloud_matched, data_shadow_matched] = MatchCloudShad
                 
                 match_id_sure = id_ex_self&data_shadow_potential(tmp_id)==1;
                 
+		% we do not provide the cloud shadow for the clouds over water
+                % when shadow is 100% over water, stop to match cloud
+                % shadow.
+                if ~isShadowater && sum(waterAll(tmp_id))==length(tmp_id)
+                    break;
+                end
+		
                 % give half weight to the macthed pixels located in outside and other
                 % clouds.
                 matched_all=sum(match_id_sure(:))+0.5*sum(match_id_unsure(:))+out_all;
