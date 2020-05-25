@@ -1,4 +1,4 @@
-function water = DetectWater( dim, mask, nir, NDVI, psnow, slope, gswater)
+function [water, waterAll] = DetectWater( dim, mask, nir, NDVI, psnow, slope, gswater)
 %DETECTWATER Detect water by combining spectral-derived water and
 %GSWO-derived water togeter.
 %
@@ -14,6 +14,9 @@ function water = DetectWater( dim, mask, nir, NDVI, psnow, slope, gswater)
 %     absolutely wrong low level GSWO (equal to 0). The GWSO will be used
 %     only when the low level GSWO is larger than 0. (9. March, 2018)
 %     3. Remove the coastline because of its frequent changes.  (6. May, 2018)
+%     4. Add a water layer which does not snoe/ice because some clouds may
+%     be like snoe/ice. This will be used to exclude processing of cloud
+%     shadow over water. (17. March, 2020)
 %
 %
 % Input arguments
@@ -32,7 +35,7 @@ function water = DetectWater( dim, mask, nir, NDVI, psnow, slope, gswater)
 %
 %        
 % Author:  Shi Qiu (shi.qiu@uconn.edu)
-% Date: 9. March, 2018
+% Date: 17. March, 2020
   
     water=zeros(dim,'uint8'); % Water msk
     %% Zhe's water test (works over thin cloud)
@@ -41,7 +44,9 @@ function water = DetectWater( dim, mask, nir, NDVI, psnow, slope, gswater)
     
     % within observation.
     water(~mask)=0; 
-    
+    % do not exclude snow over water because clouds may be like snow and
+    % will be excluded ...
+    waterAll = water;
     %% the GSWO data to enhance water map.
     if sum(water(:))>0&&~isempty(gswater)
         if sum(gswater(:))>0 % have water occurences.
@@ -54,6 +59,9 @@ function water = DetectWater( dim, mask, nir, NDVI, psnow, slope, gswater)
             if gswater_occur>0 % must be more than 0.
                 water_gs = gswater>gswater_occur;
                 clear gswater gswater_occur;
+                
+                waterAll(water_gs==1)=1;% extend water regions based on GSWO, but do not exclude snow/ice
+                
                 % sometimes ice may be over water. Snow covered sea ice is determined
                 % using the potential snow/ice.
                 water_gs(psnow == 1)=0; % remove out ice water.
@@ -66,6 +74,7 @@ function water = DetectWater( dim, mask, nir, NDVI, psnow, slope, gswater)
     %             cannot be removed because there are sometimes ice clouds over
     %             water.
                 water(~mask)=0;
+                waterAll(~mask)=0;
             end
         end
         % note that 255 indicates no data in GSWO, that is ocean pixels or

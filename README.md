@@ -5,11 +5,11 @@ If you have any questions, please contact Zhe Zhu (zhe@uconn.edu) and Shi Qiu (s
 
 **IMPORTANT:**
 
-This Github page **ONLY** includes the Matlab code for Fmask 4.0. **The Matlab package with GLOBAL AUXILIARY DATA (~1G)** is available at this [Google Drive](https://drive.google.com/open?id=1l84t_lbp5Cp5v8L_Rbzk3WQHap7MdFwc) or this [Baidu Drive with a code of p3m4](https://pan.baidu.com/s/1GHB2uLqU1OvQjQeWuoA0ig), where **autoFmask** is the main function for processing an image. **autoFmaskBacth** can process all Landsats 4-8 and Sentinel-2 images into a folder. Note that Mapping Toolbox in Matlab is required for using the source Code .
+This Github page **ONLY** includes the Matlab code for Fmask 4.2. **The Matlab package with GLOBAL AUXILIARY DATA (~1G)** is available at this [Google Drive](https://drive.google.com/drive/folders/1bVwvlGDFOsWnVj5b3MqI5yqRDoi8g935?usp=sharing), where **autoFmask** is the main function for processing an image. **autoFmaskBacth** can process all Landsats 4-8 and Sentinel-2 images into a folder. Note that Mapping Toolbox in Matlab is required for using the source Code.
 
-**Fmask 4.0 softwares** (including standalones with GUI and without GUI) on Windows, Mac, and Linux (~1G) are also ready to use now! It can be downloaded at this [Google Drive](https://drive.google.com/drive/folders/1SXBnEBDJ1Kbv7IQ9qIgqloYHZfdP6O1O). Note the standalones require Internet Connection to download [Matlab Runtime](https://www.mathworks.com/help/compiler/install-the-matlab-runtime.html). Also, you can contact us to request the version with Matlab Runtime (~3G), which can be installed without Internet.
+**Fmask 4.2 softwares** (including standalones with GUI and without GUI) on Windows, Mac, and Linux (~1G without MCR and ~3G with MCR) are also ready to use now! It can be downloaded at this [Google Drive](https://drive.google.com/drive/folders/1bVwvlGDFOsWnVj5b3MqI5yqRDoi8g935?usp=sharing).
 
-This 4.0 version has substantial better cloud, cloud shadow, and snow detection results for Sentinel 2 and better results (compared to the 3.3 version that is currently being used by USGS as the Collection 1 QA Band) for Landsats 4-8 . This one software can be used for **Landsats 4-8 Collection 1 Level 1 product (Digital Numbers)** and **Sentinel 2 Level-1C product (Top Of Atmosphere reflectance)** at the same time.
+This 4.1 version has substantial better cloud, cloud shadow, and snow detection results for Sentinel 2 and better results (compared to the 3.3 version that is currently being used by USGS as the Collection 1 QA Band) for Landsats 4-8 . This one software can be used for **Landsats 4-8 Collection 1 (or Collection 2) Level 1 product (Digital Numbers)** and **Sentinel 2 Level-1C product (Top Of Atmosphere reflectance)** at the same time.
 
 
 **IMPORTANT:** Majority of the current Collection 1 Landsats 4-8 QA Band provided by USGS are derived form **3.3 Version of Fmask algorithm** based on default parameters (cloud probability is 22.5% and buffer pixel size is 3). For example, (1) The Cloud (bit 4) is based on Fmask cloud mask (0 is not cloud and 1 is cloud in Fmask); (2) The Cloud Confidence (bits 5-6) is based on Fmask cloud probability in which >22.5% is high (11), >12.5% is medium (10), and <12.5% is low (01) with 00 kept for future use; (3) Snow/ice Confidence (bits 9-10) and Cloud Shadow Confidence (bits 7-8) has only low confidence (01) and high confidence (11) which correspond to no and yes respectively in snow/ice and cloud shadow mask provided by Fmask.
@@ -17,23 +17,30 @@ This 4.0 version has substantial better cloud, cloud shadow, and snow detection 
 **IMPORTANT:** When making the accuracy assessment for Fmask, please dilate 3 pixels for cloud shadow, but no dilation for cloud, snow, and water.
 
 
-# 4.0 Version
+# 4.2 Version
+1) Update Fmask tool for processing Landsat Collection 2 data; and allow the cloud probability thershold in a larger range such as [-100, 100] in the GUI version. (Shi Qiu 4/8/2020)
 
-1) Fixed the bug that the cloud shadows in Sentinel-2 imagery would be projected along a wrong direction when solar azimuth angle > 180 degrees. (Shi Qiu 01/19/2019)
+----- 4.1 version below ---- (4.1 version can be download at this [Google Drive](https://drive.google.com/open?id=1l84t_lbp5Cp5v8L_Rbzk3WQHap7MdFwc) for Matlab code and this [Google Drive](https://drive.google.com/drive/folders/1oVefP9G-TD2vhoCaaKCxQjvAnUlrwB19?usp=sharing) for standalones)
 
-2) Integrated Cloud Displacement Index (CDI) into this Fmask 4.0 for better seperating clouds from bright surfaces especail for Sentinel-2. The CDI was specially designed to separate clouds from bright surfaces based on the view angle parallax of the three near infrared bands (band 7, 8 and 8a) ([Frantz et al., 2018](https://doi.org/10.1016/j.rse.2018.04.046)).  (Shi Qiu and Zhe Zhu 06/03/2018)
+2) The cloud shadow mask over water would not be provided at default settings since this will be less meaningful to use and very time-consuming to process. At the same time, fixed the bug that the auxiliary data may not be used for some Sentinel-2 images, of which the extent in the metadata is defined in [0 360] rather than [-180 180]. (Shi Qiu 3/17/2020)
 
-3) Revised the method to identify the potential false positive cloud pixels.  (Shi Qiu and Zhe Zhu 05/23/2018)
+----- 4.0 version below ---- (4.0 version can be download at this [Google Drive](https://drive.google.com/open?id=1SXBnEBDJ1Kbv7IQ9qIgqloYHZfdP6O1O))
 
-4) Restricted the height of the clouds located in the scene boundary into the predicted cloud height derived from its neighboring clouds.  (Shi Qiu 04/05/2018)
+3) Fixed the bug that the cloud shadows in Sentinel-2 imagery would be projected along a wrong direction when solar azimuth angle > 180 degrees. (Shi Qiu 01/19/2019)
 
-5) Removed the overlap between the predicted cloud shadow and the potential cloud shadow layer for cloud shadow detection. (Shi Qiu and Zhe Zhu 03/29/2018)
+4) Integrated Cloud Displacement Index (CDI) into this Fmask 4.0 for better seperating clouds from bright surfaces especail for Sentinel-2. The CDI was specially designed to separate clouds from bright surfaces based on the view angle parallax of the three near infrared bands (band 7, 8 and 8a) ([Frantz et al., 2018](https://doi.org/10.1016/j.rse.2018.04.046)).  (Shi Qiu and Zhe Zhu 06/03/2018)
 
-6) Fixed the bug that the reading blue band using GRIDobj may lead to Nan value for Landsat images. (Shi Qiu 03/26/2018)
+5) Revised the method to identify the potential false positive cloud pixels.  (Shi Qiu and Zhe Zhu 05/23/2018)
 
-7) Improved the computational efficiency specially for cloud shadow matching procedure.  (Zhe Zhu and Shi Qiu 03/24/2018)
+6) Restricted the height of the clouds located in the scene boundary into the predicted cloud height derived from its neighboring clouds.  (Shi Qiu 04/05/2018)
 
-8) Released Fmask 4.0 beta version. (Shi Qiu, Zhe Zhu, and Binbin He 03/22/2018)
+7) Removed the overlap between the predicted cloud shadow and the potential cloud shadow layer for cloud shadow detection. (Shi Qiu and Zhe Zhu 03/29/2018)
+
+8) Fixed the bug that the reading blue band using GRIDobj may lead to Nan value for Landsat images. (Shi Qiu 03/26/2018)
+
+9) Improved the computational efficiency specially for cloud shadow matching procedure.  (Zhe Zhu and Shi Qiu 03/24/2018)
+
+10) Released Fmask 4.0 beta version. (Shi Qiu, Zhe Zhu, and Binbin He 03/22/2018)
 
 
 Please cite the following papers:

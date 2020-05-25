@@ -6,6 +6,7 @@
 % wrong when some parts of cloud are out of the observations.
 % 
 %
+% mask out the shadow of cloud over water or not?  By Shi, at 17, March, 2020
 % fix the bug that cloud shadow would be projected on the other side in Sentinel-2 imagery when the azimuth angle > 180. By Shi, at 19, Jan., 2019
 % use new match similarity becasue we do not know the potential clouds 
 % excluding self cloud and outsides are shadow or not.   by Shi, at 21, April, 2018
@@ -29,7 +30,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [ similar_num,data_cloud_matched, data_shadow_matched] = MatchCloudShadow(...
-    mask,plcim,plsim,pfpl,water,data_dem,data_bt_c,t_templ,t_temph,data_meta,ptm,num_near,angles_view)
+    mask,plcim,plsim,isShadowater,waterAll,data_dem,data_bt_c,t_templ,t_temph,data_meta,ptm,num_near,angles_view)
     
     dim=data_meta.Dim;
     % get potential mask values
@@ -435,6 +436,13 @@ function [ similar_num,data_cloud_matched, data_shadow_matched] = MatchCloudShad
                 
                 match_id_sure = id_ex_self&data_shadow_potential(tmp_id)==1;
                 
+		% we do not provide the cloud shadow for the clouds over water
+                % when shadow is 100% over water, stop to match cloud
+                % shadow.
+                if ~isShadowater && sum(waterAll(tmp_id))==length(tmp_id)
+                    break;
+                end
+		
                 % give half weight to the macthed pixels located in outside and other
                 % clouds.
                 matched_all=sum(match_id_sure(:))+0.5*sum(match_id_unsure(:))+out_all;
